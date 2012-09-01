@@ -1,0 +1,36 @@
+Script to interact with URLVoid. You'll need to get an API key first. Check
+out http://blog.urlvoid.com/urlvoid-api-v2-0/
+
+# Command line arguments
+usage: urlvoid.py [-h] [-k API_KEY] [-p PROXY] [-i INPUT_FILE]
+                  [-o OUTPUT_FILE] [-e] [--no-header] [-d DELIM]
+                  [--no-strip-subs]
+                  [domains [domains ...]]
+
+URLVoid Domain Checker
+
+positional arguments:
+  domains               Domains to submit
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -k API_KEY, --api-key API_KEY
+                        Specify API Key
+  -p PROXY, --proxy PROXY
+                        HTTP proxy to use
+  -i INPUT_FILE, --input-file INPUT_FILE
+                        File containing domains to check
+  -o OUTPUT_FILE, --output-file OUTPUT_FILE
+                        Save CSV results to file
+  -e, --export          Output to stdout in an exportable/greppable format
+  --no-header           Do not output a header
+  -d DELIM, --delim DELIM
+                        Specify stdout output delimeter
+  --no-strip-subs       Do not strip sub-domains (like www)
+
+
+  # Example use in other scripts
+  list_of_domains = ['evilsite.com', 'evilincorporated.org'] 
+  results = urlvoid.submit(list_of_domains)
+  results.get_detected_domains()
+
